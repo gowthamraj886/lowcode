@@ -1,0 +1,1532 @@
+/*
+ * Author       : kaileshm65552
+ * Generated on : 01-Nov-2026 17:41:22
+ * Version      : 1.0
+ */
+ application "College Sports & Recovery Tracker"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Fitness_Clearance
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Clearance_ID
+			(
+    			type = autonumber
+				displayname = "Clearance ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Report
+			(
+				type = picklist	
+				displayname = "Injury Report"
+				values  = Injury_Report.ID
+    			displayformat = [Body_Part]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Evaluation_Date
+			(
+    			type = date
+				displayname = "Evaluation Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fitness_Result
+			(
+				type = picklist
+				displayname = "Fitness Result"
+				maxchar = 100
+				values = {"Fit","Not fit","Moderately fit"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Recommendation
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reviewed_By
+			(
+    			type = text
+				displayname = "Reviewed By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Approval_Status
+			(
+				type = picklist
+				displayname = "Approval Status"
+				maxchar = 100
+				values = {"Pending","Approved","Rejected"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Remarks
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Injury_Report
+		{
+			displayname = "Injury Report"
+			success message = "Injury Report Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Injury_ID
+			(
+    			type = autonumber
+				displayname = "Injury ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Player_Registration
+			(
+				type = picklist	
+				values  = Player_Registration.ID
+    			displayformat = [Player_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Date
+			(
+    			type = date
+				displayname = "Injury Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sport
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Cricket","Football","Kabbadi","Kho Kho"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Body_Part
+			(
+				type = picklist
+				displayname = "Body Part"
+				maxchar = 100
+				values = {"Knee","Ankle","Shoulder"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Type
+			(
+				type = picklist
+				displayname = "Injury Type"
+				maxchar = 100
+				values = {"Sprain","Strain","Fracture"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Severity
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Mild","Moderate","Severe"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Cause
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Training","Match","Other"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Photo
+			(
+    			type = image
+				displayname = "Injury Photo"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Status
+			(
+				type = picklist
+				displayname = "Injury Status"
+				maxchar = 100
+				values = {"Reported","Under Assessment","Recovering"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Player_Registration
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Player_ID
+			(
+    			type = autonumber
+				displayname = "Player ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Player_Name
+			(
+    			type = text
+				displayname = "Player Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Register_Number
+			(
+    			type = text
+				displayname = "Register Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Department
+			(
+				type = picklist
+				maxchar = 100
+				values = {"IT","CSE","AIML"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Year_field
+			(
+				type = picklist
+				displayname = "Year"
+				maxchar = 100
+				values = {"1","2","3"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sport
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Cricket","Football","Kabaddi","Kho Kho"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Team_Name
+			(
+    			type = text
+				displayname = "Team Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Phone_Number1
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Recovery_Plan
+		{
+			displayname = "Recovery Plan"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Recovery_Plan_ID
+			(
+    			type = autonumber
+				displayname = "Recovery Plan ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Report
+			(
+				type = picklist	
+				displayname = "Injury Report"
+				values  = Injury_Report.ID
+    			displayformat = [Injury_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Start_Date
+			(
+    			type = date
+				displayname = "Start Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Target_End_Date
+			(
+    			type = date
+				displayname = "Target End Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Physiotherapist_Name
+			(
+    			type = text
+				displayname = "Physiotherapist Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Plan_Status
+			(
+				type = picklist
+				displayname = "Plan Status"
+				maxchar = 100
+				values = {"Planned","In Progress","Finished"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Recovery_Activities
+			(
+				type = grid
+				Activity_Name
+				(
+    				type = text
+					displayname = "Activity Name"
+					width = medium
+				)
+				Duration_in_Minutes
+				(
+					type = number
+					displayname = "Duration in Minutes"
+					width = medium
+				)
+				Sessions_per_Week
+				(
+					type = number
+					displayname = "Sessions per Week"
+					width = medium
+				)
+				Instructions
+				(
+    				type = textarea
+					height = 100px
+					width = medium
+				)
+				Activity_Status
+				(
+					type = picklist
+					displayname = "Activity Status"
+					maxchar = 100
+					values = {"Pending","In Progress","Completed"}
+					width = medium
+				)
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Recovery_Progress
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Progress_ID
+			(
+    			type = autonumber
+				displayname = "Progress ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Recovery_Plan
+			(
+				type = picklist	
+				displayname = "Recovery Plan"
+				values  = Recovery_Plan.ID
+    			displayformat = [Physiotherapist_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Progress_Date
+			(
+    			type = date
+				displayname = "Progress Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Pain_Level
+			(
+				type = number
+				displayname = "Pain Level"
+				maxchar = 5
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Progress_Percentage
+			(
+				type = number
+				displayname = "Progress Percentage"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Exercise_Completed
+			(
+    			type = checkbox
+				displayname = "Exercise Completed"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Physiotherapist_Remarks
+			(
+    			type = textarea
+				displayname = "Physiotherapist Remarks"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Current_Status
+			(
+				type = picklist
+				displayname = "Current Status"
+				maxchar = 100
+				values = {"No Change","Improved","Need Review"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Player_Registration_Report
+		{
+			displayName = "Player_Registration Report"
+			show all rows from Player_Registration    
+			(
+				Player_ID as "Player ID"
+				Player_Name as "Player Name"
+				Register_Number as "Register Number"
+				Department
+				Year_field as "Year"
+				Sport
+				Team_Name as "Team Name"
+				Phone_Number1 as "Phone Number"
+				(
+					displayformat = plainnumber 
+				)
+				Email
+			)
+		}
+		default list All_Injury_Reports
+		{
+			displayName = "All Injury Reports"
+			show all rows from Injury_Report    
+			(
+				Injury_ID as "Injury ID"
+				Player_Registration
+				Injury_Date as "Injury Date"
+				Sport
+				Body_Part as "Body Part"
+				Injury_Type as "Injury Type"
+				Severity
+				Cause
+				Description
+				Injury_Photo as "Injury Photo"
+				Injury_Status as "Injury Status"
+			)
+		}
+		default list Recovery_Plan_Report
+		{
+			displayName = "Recovery Plan Report"
+			show all rows from Recovery_Plan    
+			(
+				Recovery_Plan_ID as "Recovery Plan ID"
+				Injury_Report as "Injury Report"
+				Start_Date as "Start Date"
+				Target_End_Date as "Target End Date"
+				Physiotherapist_Name as "Physiotherapist Name"
+				Plan_Status as "Plan Status"
+				Recovery_Activities.Activity_Name as "Recovery_Activities"
+			)
+		}
+		default list Recovery_Progress_Report
+		{
+			displayName = "Recovery_Progress Report"
+			show all rows from Recovery_Progress    
+			(
+				Progress_ID as "Progress ID"
+				Recovery_Plan as "Recovery Plan"
+				Progress_Date as "Progress Date"
+				Pain_Level as "Pain Level"
+				Progress_Percentage as "Progress Percentage"
+				Exercise_Completed as "Exercise Completed"
+				Physiotherapist_Remarks as "Physiotherapist Remarks"
+				Current_Status as "Current Status"
+			)
+		}
+		default list Fitness_Clearance_Report
+		{
+			displayName = "Fitness_Clearance Report"
+			show all rows from Fitness_Clearance    
+			(
+				Clearance_ID as "Clearance ID"
+				Injury_Report as "Injury Report"
+				Evaluation_Date as "Evaluation Date"
+				Fitness_Result as "Fitness Result"
+				Recommendation
+				Reviewed_By as "Reviewed By"
+				Approval_Status as "Approval Status"
+				Remarks
+			)
+		}
+	}
+	pages
+	{
+		page Sports_Recovery_Dashboard
+		{
+			displayname = "1. Sports_Recovery_Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='24%'\n   \t>\n\t<panel elementName='Panel 5'\n \n\t\n\ttitle = 'TOTAL PLAYERS'\n\t\n\t\ttitleColor = '#0ABB51'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = '#047B33'\n\n    borderColor = '#222326'\n    borderWidth = '0px'\n\t\thAlign = 'center'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Player_Registration.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\tfontFamily = 'arimo, sans-serif' \n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total players registered'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='26%'\n   \t>\n\t<panel elementName='Panel 7'\n \n\t\n\ttitle = 'RECOVERY PLANS'\n\t\n\t\ttitleColor = '#0ABB51'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\tcolor = '#000000'\n\tbgColor = '#FFFFFF'\n\twidth = '51.9922px'\n\theight = '51.9922px'\n\ttype = 'icon'\n\tvalue = 'business-gold'\n\tsize = '24px'\n\tcornerRadius = '26px'\n\ticonType = 'solid'\n/>\n</pc><pc \n\t\tpadding = '5px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\n\t  value = 'Recovery plan'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '2px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#2A70E7'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Recovery_Plan.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='28%'\n   \t>\n\t<panel elementName='Panel 6'\n \n\t\n\ttitle = 'INJURIES'\n\t\n\t\ttitleColor = '#0ABB51'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = '#047B33'\n\n    borderColor = '#047B33'\n    borderWidth = '0px'\n\t\thAlign = 'center'\n    \tcornerRadius = '0px'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmargin = '0px'\n\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\tcolor = '#FFFFFF'\n\tbgColor = '#0ABB51'\n\twidth = '51.9922px'\n\theight = '51.9922px'\n\ttype = 'icon'\n\tvalue = 'media-1-ticket-76'\n\tsize = '32px'\n\tcornerRadius = '26px'\n\ticonType = 'solid'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#0ABB51'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Injury_Report.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = '#047B33'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total injuries'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='22%'\n   \t>\n\t<panel elementName='Panel 8'\n \n\t\n\ttitle = 'UPTO DATE REPORT'\n\t\n\t\ttitleColor = '#0ABB51'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Fitness cleared players'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '5px'\n\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\tcolor = '#000000'\n\tbgColor = '#FFFFFF'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'business-chart-bar-33'\n\tsize = '22px'\n\tcornerRadius = '20px'\n\ticonType = 'solid'\n/>\n</pc><pc \n\t\n>\n\t<text \n\n\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '5px'\n\tpadding = '0px'\n\tcolor = '#FFFFFF'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF8318'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Fitness_Clearance.ID.count'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='48%'\n   \t>\n\t<chart \n\telementName='Injuries by Severity'\n\n\t\n\ttitle = 'Sports_recovery_dashboard'\n\t\n\t\ttitleColor = '#0ABB51'\n\ttype = 'Pie'\n\tbgColor = 'transparent'\n\ttheme = 'theme1'\n\tlegendPos = 'left.center'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Injury_Report'\n\txfield = 'Severity'\n\tyfields = 'count:Injury_ID'\n/>\n\n</column><column\n   \t\t width='52%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\ttype = 'Bar'\n\tytitle = 'Number of Injuries'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Injury_Report'\n\txfield = 'Injury_Type'\n\tyfields = 'count:Injury_ID'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Chart 1'\n\n\ttype = 'Donut'\n\tytitle = 'Status'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Recovery_Plan'\n\txfield = 'Plan_Status'\n\tyfields = 'count:Recovery_Plan_ID'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Player_Registration_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Report 2'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Recovery_Plan_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Report 1'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'All_Injury_Reports'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Report 3'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Recovery_Progress_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report 4'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Fitness_Clearance_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Panel'\n \n\t\n\ttitle = 'Sports Recovery Center'\n\t\n\t\ttitleSize = '28px'\n\t\t    italicTitle = 'true'\n\t\ttitleColor = '#06943F'\n\t\ttitleFontFamily = 'RobotoSlab, arimo, sans-serif'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Player_Registration_Report'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='Player_Registration Report'\n\t\tbgColor = '#047B33'\n\t\tcornerRadius = '8px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'All_Injury_Reports'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='All Injury Reports'\n\t\tbgColor = '#047B33'\n\t\tcornerRadius = '8px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='39%'\n   \t>\n\t<panel elementName='Panel 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Fitness_Clearance_Report'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#AA550C'\n    borderWidth = '0px'\n\ttext ='Fitness_Clearance Report'\n\t\tbgColor = '#047B33'\n\t\tcornerRadius = '8px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='34%'\n   \t>\n\t<panel elementName='Panel 3'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Recovery_Progress_Report'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='Recovery_Progress Report'\n\t\tbgColor = '#047B33'\n\t\tcornerRadius = '8px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='27%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#047B33'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Recovery_Plan_Report'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='Recovery Plan Report'\n\t\tbgColor = '#047B33'\n\t\tcornerRadius = '8px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Injury_Reported_Alert as "Injury_Reported_Alert"
+			{
+				type =  form
+				form = Injury_Report
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "gowthamraj.m.2024.cse@rajalakshmi.edu.in"
+							to : "kaileshm65552@gmail.com"
+							subject : "New Sports Injury Reported"
+							message : "<p><span>A new sports injury has been reported.</span><br></p><p><span>Please log in to the College Sports &amp; Recovery Tracker to review the injury details and update the assessment.</span><br></p><p><span>This is an automated notification.</span><br></p><div><br></div>"
+						)
+					}
+				}
+
+			}
+			Recovery_Progress_Update as "Recovery_Progress_Update"
+			{
+				type =  form
+				form = Recovery_Progress
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Pain_Level >= 8)
+										{
+											sendmail
+											[
+												from :"gowthamraj.m.2024.cse@rajalakshmi.edu.in"
+												to :"kaileshm65552@gmail.com"
+												subject :"High Pain Level Alert"
+												message :"<div><span>A recovery progress entry has recorded a pain level of 8 or above. Please review the player's condition.</span><br></div>"
+											]
+										}
+						)
+					}
+				}
+
+			}
+			Recovery_Overdue_Alert1 as "Recovery_Overdue_Alert"
+			{
+				type =  form
+				form = Recovery_Plan
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Target_End_Date < zoho.currentdate && Plan_Status != "Completed")
+										{
+											sendmail
+											[
+												from :"gowthamraj.m.2024.cse@rajalakshmi.edu.in"
+												to :"kaileshm65552@gmail.com"
+												subject :"Recovery Overdue Alert"
+												message :"A recovery plan has passed its target end date and is not yet completed. Please review the player's recovery status."
+											]
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "CSR"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Fitness_Clearance
+			{
+				label placement = left
+			}
+			form Injury_Report
+			{
+				label placement = left
+			}
+			form Player_Registration
+			{
+				label placement = left
+			}
+			form Recovery_Plan
+			{
+				label placement = left
+			}
+			form Recovery_Progress
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Player_Registration_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Player_ID as "Player ID"
+								Player_Name as "Player Name"
+								Register_Number as "Register Number"
+								Department
+								Year_field as "Year"
+								Sport
+								Team_Name as "Team Name"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Player_ID as "Player ID"
+								Player_Name as "Player Name"
+								Register_Number as "Register Number"
+								Department
+								Year_field as "Year"
+								Sport
+								Team_Name as "Team Name"
+								Phone_Number1 as "Phone Number"
+								Email
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Injury_Reports
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Injury_ID as "Injury ID"
+								Player_Registration
+								Injury_Date as "Injury Date"
+								Sport
+								Body_Part as "Body Part"
+								Injury_Type as "Injury Type"
+								Severity
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Injury_ID as "Injury ID"
+								Player_Registration
+								Injury_Date as "Injury Date"
+								Sport
+								Body_Part as "Body Part"
+								Injury_Type as "Injury Type"
+								Severity
+								Cause
+								Description
+								Injury_Photo as "Injury Photo"
+								Injury_Status as "Injury Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Recovery_Plan_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Recovery_Plan_ID as "Recovery Plan ID"
+								Injury_Report as "Injury Report"
+								Start_Date as "Start Date"
+								Target_End_Date as "Target End Date"
+								Physiotherapist_Name as "Physiotherapist Name"
+								Plan_Status as "Plan Status"
+								Recovery_Activities.Activity_Name as "Recovery_Activities"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Recovery_Plan_ID as "Recovery Plan ID"
+								Injury_Report as "Injury Report"
+								Start_Date as "Start Date"
+								Target_End_Date as "Target End Date"
+								Physiotherapist_Name as "Physiotherapist Name"
+								Plan_Status as "Plan Status"
+								Recovery_Activities.Activity_Name as "Recovery_Activities"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Recovery_Progress_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Progress_ID as "Progress ID"
+								Recovery_Plan as "Recovery Plan"
+								Progress_Date as "Progress Date"
+								Pain_Level as "Pain Level"
+								Progress_Percentage as "Progress Percentage"
+								Exercise_Completed as "Exercise Completed"
+								Physiotherapist_Remarks as "Physiotherapist Remarks"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Progress_ID as "Progress ID"
+								Recovery_Plan as "Recovery Plan"
+								Progress_Date as "Progress Date"
+								Pain_Level as "Pain Level"
+								Progress_Percentage as "Progress Percentage"
+								Exercise_Completed as "Exercise Completed"
+								Physiotherapist_Remarks as "Physiotherapist Remarks"
+								Current_Status as "Current Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Fitness_Clearance_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Clearance_ID as "Clearance ID"
+								Injury_Report as "Injury Report"
+								Evaluation_Date as "Evaluation Date"
+								Fitness_Result as "Fitness Result"
+								Recommendation
+								Reviewed_By as "Reviewed By"
+								Approval_Status as "Approval Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Clearance_ID as "Clearance ID"
+								Injury_Report as "Injury Report"
+								Evaluation_Date as "Evaluation Date"
+								Fitness_Result as "Fitness Result"
+								Recommendation
+								Reviewed_By as "Reviewed By"
+								Approval_Status as "Approval Status"
+								Remarks
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Player_Registration
+				{
+					displayname = "Player_Registration"
+					icon = "tech-desktop"
+					form  Player_Registration
+					{
+						icon = "tech-desktop"
+					}
+					report Player_Registration_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Injury_Reports
+				{
+					displayname = "Injury Reports"
+					icon = "business-money-time"
+					form  Injury_Report
+					{
+						icon = "business-laptop-71"
+					}
+					report All_Injury_Reports
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Recovery_Plan
+				{
+					displayname = "Recovery Plan"
+					icon = "sport-tactic"
+					form  Recovery_Plan
+					{
+						icon = "sport-tactic"
+					}
+					report Recovery_Plan_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Recovery_Progress
+				{
+					displayname = "Recovery_Progress"
+					icon = "tech-desktop"
+					form  Recovery_Progress
+					{
+						icon = "tech-desktop"
+					}
+					report Recovery_Progress_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Fitness_Clearance
+				{
+					displayname = "Fitness_Clearance"
+					icon = "tech-desktop"
+					form  Fitness_Clearance
+					{
+						icon = "tech-desktop"
+					}
+					report Fitness_Clearance_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Sports_Recovery_Dashboard
+				{
+					displayname = "1. Sports_Recovery_Dashboard"
+					icon = "tech-desktop"
+					page Sports_Recovery_Dashboard
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Fitness_Clearance
+			{
+				label placement = auto
+			}
+			form Injury_Report
+			{
+				label placement = auto
+			}
+			form Player_Registration
+			{
+				label placement = auto
+			}
+			form Recovery_Plan
+			{
+				label placement = auto
+			}
+			form Recovery_Progress
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Fitness_Clearance
+			{
+				label placement = auto
+			}
+			form Injury_Report
+			{
+				label placement = auto
+			}
+			form Player_Registration
+			{
+				label placement = auto
+			}
+			form Recovery_Plan
+			{
+				label placement = auto
+			}
+			form Recovery_Progress
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = rose
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
